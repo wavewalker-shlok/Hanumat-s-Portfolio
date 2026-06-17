@@ -632,243 +632,253 @@
 
     
 
-<!-- ==================== SKILLS — Two-Panel Tabs Layout ==================== -->
-<section class="skills-panel" id="skills">
+<!-- ==================== SKILLS — Infinite Marquee Style ==================== -->
+<section class="skills-marquee" id="skills">
 
-    <!-- Subtle diagonal pattern bg -->
-    <div class="skills-panel-bg"></div>
+    <!-- Subtle bg layers -->
+    <div class="skills-marquee-bg"></div>
 
     <div class="container">
 
         <!-- Section Header -->
         <div class="section-header">
-            <span class="section-subtitle">Professional Expertise</span>
+            <span class="section-subtitle">My Toolkit</span>
             <h2 class="section-title">Skills & Core Strengths</h2>
             <div class="title-underline"></div>
             <p class="section-intro">
-                A balanced toolkit of <strong>technical proficiency</strong>, 
-                <strong>professional acumen</strong>, and <strong>personal values</strong> 
-                — built over years of dedicated learning and real-world experience.
+                Years of hands-on experience have shaped my <strong>technical proficiency</strong>, 
+                <strong>professional acumen</strong>, and <strong>personal values</strong> — the three 
+                pillars that drive every decision I make.
             </p>
         </div>
 
-        <!-- Tabs + Content Panel -->
-        <div class="skills-tabs-wrapper">
+    </div>
 
-            <!-- LEFT: Vertical Tabs -->
-            <div class="skills-tabs" role="tablist">
+    <!-- ============ MARQUEE ROW 1 — TECHNICAL ============ -->
+    <div class="marquee-row marquee-row-1">
+        <div class="marquee-track">
 
-                <button class="skills-tab active" data-tab="technical" role="tab">
-                    <div class="tab-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="tab-text">
-                        <span class="tab-label">Technical</span>
-                        <span class="tab-meta">Skills · 3 items</span>
-                    </div>
-                    <i class="fas fa-chevron-right tab-arrow"></i>
-                </button>
-
-                <button class="skills-tab" data-tab="professional" role="tab">
-                    <div class="tab-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="tab-text">
-                        <span class="tab-label">Professional</span>
-                        <span class="tab-meta">Acumen · 4 items</span>
-                    </div>
-                    <i class="fas fa-chevron-right tab-arrow"></i>
-                </button>
-
-                <button class="skills-tab" data-tab="personal" role="tab">
-                    <div class="tab-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="tab-text">
-                        <span class="tab-label">Personal</span>
-                        <span class="tab-meta">Values · 4 items</span>
-                    </div>
-                    <i class="fas fa-chevron-right tab-arrow"></i>
-                </button>
-
-                <!-- Decorative bottom note -->
-                <div class="tabs-bottom-note">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Click any category to explore</span>
+            <!-- Set of cards -->
+            <div class="skill-marquee-card tech-card">
+                <div class="marquee-card-badge">Technical</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-certificate"></i>
                 </div>
-
+                <h3 class="marquee-card-title">RSCIT Certified</h3>
+                <p class="marquee-card-desc">Government-recognized IT certification from Rajasthan State.</p>
             </div>
 
-            <!-- RIGHT: Content Panel -->
-            <div class="skills-content">
-
-                <!-- ===== TECHNICAL PANEL ===== -->
-                <div class="skills-panel-content active" data-panel="technical">
-                    <div class="panel-header">
-                        <div class="panel-header-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div>
-                            <h3>Technical Expertise</h3>
-                            <p>Government certifications and software proficiency for modern banking operations.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-cards-grid">
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>RSCIT Certified</h4>
-                                <p>Rajasthan State Certificate in Information Technology — Government recognized.</p>
-                            </div>
-                        </div>
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-table"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>Advance Excel</h4>
-                                <p>Pivot tables, VLOOKUP, financial modeling, and data visualization.</p>
-                            </div>
-                        </div>
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>MS Office Suite</h4>
-                                <p>Proficient in MS Word, Excel, and PowerPoint for daily operations and reporting.</p>
-                            </div>
-                        </div>
-
-                    </div>
+            <div class="skill-marquee-card tech-card">
+                <div class="marquee-card-badge">Technical</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-table"></i>
                 </div>
+                <h3 class="marquee-card-title">Advance Excel</h3>
+                <p class="marquee-card-desc">Pivot tables, VLOOKUP, financial modeling expertise.</p>
+            </div>
 
-                <!-- ===== PROFESSIONAL PANEL ===== -->
-                <div class="skills-panel-content" data-panel="professional">
-                    <div class="panel-header">
-                        <div class="panel-header-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div>
-                            <h3>Professional Acumen</h3>
-                            <p>Core competencies developed through hands-on experience in BFSI leadership roles.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-cards-grid">
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>Leadership Qualities</h4>
-                                <p>Leading diverse teams with equality and honesty for every assigned task.</p>
-                            </div>
-                        </div>
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>Management Skills</h4>
-                                <p>Strategic planning, team coordination, and end-to-end branch operations management.</p>
-                            </div>
-                        </div>
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>Negotiation</h4>
-                                <p>Building win-win business relationships with clients, partners, and channel networks.</p>
-                            </div>
-                        </div>
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-coins"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>Cost Optimization</h4>
-                                <p>Cost-effective techniques to achieve maximum output with minimum input.</p>
-                            </div>
-                        </div>
-
-                    </div>
+            <div class="skill-marquee-card tech-card">
+                <div class="marquee-card-badge">Technical</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-file-alt"></i>
                 </div>
+                <h3 class="marquee-card-title">MS Office Suite</h3>
+                <p class="marquee-card-desc">Daily proficiency in Word, Excel, and PowerPoint.</p>
+            </div>
 
-                <!-- ===== PERSONAL PANEL ===== -->
-                <div class="skills-panel-content" data-panel="personal">
-                    <div class="panel-header">
-                        <div class="panel-header-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <div>
-                            <h3>Personal Values</h3>
-                            <p>The principles and mindset that drive every decision and interaction in my journey.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-cards-grid">
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>Critical & Creative Thinking</h4>
-                                <p>Approaching challenges with analytical depth and innovative problem-solving.</p>
-                            </div>
-                        </div>
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-bullseye"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>Result Oriented</h4>
-                                <p>Responsible and goal-driven mindset with consistent focus on outcomes.</p>
-                            </div>
-                        </div>
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>Intellectual Curiosity</h4>
-                                <p>Continuous appetite for learning new things and exploring evolving industry trends.</p>
-                            </div>
-                        </div>
-
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <i class="fas fa-sun"></i>
-                            </div>
-                            <div class="skill-card-body">
-                                <h4>Positive Attitude</h4>
-                                <p>Maintaining positivity towards work and fostering a collaborative spirit with co-workers.</p>
-                            </div>
-                        </div>
-
-                    </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="skill-marquee-card tech-card">
+                <div class="marquee-card-badge">Technical</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-certificate"></i>
                 </div>
+                <h3 class="marquee-card-title">RSCIT Certified</h3>
+                <p class="marquee-card-desc">Government-recognized IT certification from Rajasthan State.</p>
+            </div>
 
+            <div class="skill-marquee-card tech-card">
+                <div class="marquee-card-badge">Technical</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-table"></i>
+                </div>
+                <h3 class="marquee-card-title">Advance Excel</h3>
+                <p class="marquee-card-desc">Pivot tables, VLOOKUP, financial modeling expertise.</p>
+            </div>
+
+            <div class="skill-marquee-card tech-card">
+                <div class="marquee-card-badge">Technical</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3 class="marquee-card-title">MS Office Suite</h3>
+                <p class="marquee-card-desc">Daily proficiency in Word, Excel, and PowerPoint.</p>
             </div>
 
         </div>
-
     </div>
+
+    <!-- ============ MARQUEE ROW 2 — PROFESSIONAL ============ -->
+    <div class="marquee-row marquee-row-2">
+        <div class="marquee-track marquee-reverse">
+
+            <div class="skill-marquee-card pro-card">
+                <div class="marquee-card-badge">Professional</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3 class="marquee-card-title">Leadership Qualities</h3>
+                <p class="marquee-card-desc">Leading teams with equality and honesty for every task.</p>
+            </div>
+
+            <div class="skill-marquee-card pro-card">
+                <div class="marquee-card-badge">Professional</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="marquee-card-title">Management Skills</h3>
+                <p class="marquee-card-desc">Strategic planning, team coordination, and branch operations.</p>
+            </div>
+
+            <div class="skill-marquee-card pro-card">
+                <div class="marquee-card-badge">Professional</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="marquee-card-title">Negotiation</h3>
+                <p class="marquee-card-desc">Building win-win business relationships with stakeholders.</p>
+            </div>
+
+            <div class="skill-marquee-card pro-card">
+                <div class="marquee-card-badge">Professional</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h3 class="marquee-card-title">Cost Optimization</h3>
+                <p class="marquee-card-desc">Maximum output with minimum input — efficient resource use.</p>
+            </div>
+
+            <!-- Duplicate -->
+            <div class="skill-marquee-card pro-card">
+                <div class="marquee-card-badge">Professional</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3 class="marquee-card-title">Leadership Qualities</h3>
+                <p class="marquee-card-desc">Leading teams with equality and honesty for every task.</p>
+            </div>
+
+            <div class="skill-marquee-card pro-card">
+                <div class="marquee-card-badge">Professional</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="marquee-card-title">Management Skills</h3>
+                <p class="marquee-card-desc">Strategic planning, team coordination, and branch operations.</p>
+            </div>
+
+            <div class="skill-marquee-card pro-card">
+                <div class="marquee-card-badge">Professional</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="marquee-card-title">Negotiation</h3>
+                <p class="marquee-card-desc">Building win-win business relationships with stakeholders.</p>
+            </div>
+
+            <div class="skill-marquee-card pro-card">
+                <div class="marquee-card-badge">Professional</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h3 class="marquee-card-title">Cost Optimization</h3>
+                <p class="marquee-card-desc">Maximum output with minimum input — efficient resource use.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============ MARQUEE ROW 3 — PERSONAL ============ -->
+    <div class="marquee-row marquee-row-3">
+        <div class="marquee-track">
+
+            <div class="skill-marquee-card personal-card">
+                <div class="marquee-card-badge">Personal</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="marquee-card-title">Critical Thinking</h3>
+                <p class="marquee-card-desc">Analytical depth with creative problem-solving approach.</p>
+            </div>
+
+            <div class="skill-marquee-card personal-card">
+                <div class="marquee-card-badge">Personal</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="marquee-card-title">Result Oriented</h3>
+                <p class="marquee-card-desc">Responsible mindset with consistent focus on outcomes.</p>
+            </div>
+
+            <div class="skill-marquee-card personal-card">
+                <div class="marquee-card-badge">Personal</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3 class="marquee-card-title">Intellectual Curiosity</h3>
+                <p class="marquee-card-desc">Continuous appetite for learning and exploring new trends.</p>
+            </div>
+
+            <div class="skill-marquee-card personal-card">
+                <div class="marquee-card-badge">Personal</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h3 class="marquee-card-title">Positive Attitude</h3>
+                <p class="marquee-card-desc">Fostering a collaborative spirit with work and co-workers.</p>
+            </div>
+
+            <!-- Duplicate -->
+            <div class="skill-marquee-card personal-card">
+                <div class="marquee-card-badge">Personal</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="marquee-card-title">Critical Thinking</h3>
+                <p class="marquee-card-desc">Analytical depth with creative problem-solving approach.</p>
+            </div>
+
+            <div class="skill-marquee-card personal-card">
+                <div class="marquee-card-badge">Personal</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="marquee-card-title">Result Oriented</h3>
+                <p class="marquee-card-desc">Responsible mindset with consistent focus on outcomes.</p>
+            </div>
+
+            <div class="skill-marquee-card personal-card">
+                <div class="marquee-card-badge">Personal</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3 class="marquee-card-title">Intellectual Curiosity</h3>
+                <p class="marquee-card-desc">Continuous appetite for learning and exploring new trends.</p>
+            </div>
+
+            <div class="skill-marquee-card personal-card">
+                <div class="marquee-card-badge">Personal</div>
+                <div class="marquee-card-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h3 class="marquee-card-title">Positive Attitude</h3>
+                <p class="marquee-card-desc">Fostering a collaborative spirit with work and co-workers.</p>
+            </div>
+
+        </div>
+    </div>
+
 </section>
+
 
 
 <!-- ==================== ACHIEVEMENTS — Simple Cork Board ==================== -->

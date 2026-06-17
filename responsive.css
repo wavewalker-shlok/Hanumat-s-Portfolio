@@ -481,102 +481,63 @@
         padding: 4px 10px;
     }
 
-    /* ===== SKILLS PANEL ===== */
-    .skills-panel {
-        padding: 70px 0 90px;
-    }
+/* ===== SKILLS MARQUEE — Tablet/Mobile (768px) ===== */
+.skills-marquee {
+    padding: 70px 0 80px;
+}
 
-    .skills-panel .section-intro {
-        font-size: 13px;
-        padding: 0 10px;
-    }
+.skills-marquee .section-intro {
+    font-size: 13px;
+    padding: 0 15px;
+}
 
-    .skills-tabs-wrapper {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 40px;
-        padding: 22px;
-    }
+.marquee-row {
+    margin-top: 20px;
+    padding: 10px 0;
+}
 
-    .skills-tabs {
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 10px;
-        padding-bottom: 6px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-    }
+.marquee-row-1 { margin-top: 40px; }
 
-    .skills-tabs::-webkit-scrollbar {
-        height: 4px;
-    }
+.marquee-row::before,
+.marquee-row::after {
+    width: 60px;
+}
 
-    .skills-tabs::-webkit-scrollbar-thumb {
-        background: rgba(198, 167, 94, 0.4);
-        border-radius: 4px;
-    }
+.marquee-track {
+    gap: 16px;
+    animation-duration: 35s;
+}
 
-    .skills-tab {
-        flex-shrink: 0;
-        min-width: 220px;
-        padding: 14px 16px;
-        scroll-snap-align: start;
-    }
+.marquee-reverse {
+    animation-duration: 38s;
+}
 
-    .skills-tab:not(.active):hover {
-        transform: none;
-    }
+.skill-marquee-card {
+    width: 270px;
+    padding: 22px 20px;
+    gap: 12px;
+}
 
-    .tab-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
+.marquee-card-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+}
 
-    .tab-label { font-size: 14px; }
-    .tab-meta { font-size: 10px; }
-    .tab-arrow { display: none; }
-    .tabs-bottom-note { display: none; }
+.marquee-card-title {
+    font-size: 18px;
+}
 
-    .skills-content {
-        padding: 24px 22px;
-        min-height: auto;
-    }
+.marquee-card-desc {
+    font-size: 12.5px;
+}
 
-    .panel-header {
-        gap: 14px;
-        margin-bottom: 22px;
-        padding-bottom: 18px;
-    }
-
-    .panel-header-icon {
-        width: 46px;
-        height: 46px;
-        font-size: 19px;
-    }
-
-    .panel-header h3 { font-size: 20px; }
-    .panel-header p { font-size: 13px; }
-
-    .skill-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .skill-card {
-        padding: 16px 18px;
-        gap: 14px;
-    }
-
-    .skill-card-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-
-    .skill-card-body h4 { font-size: 15px; }
-    .skill-card-body p { font-size: 12px; }
+.marquee-card-badge {
+    font-size: 9px;
+    padding: 4px 10px;
+    top: 14px;
+    right: 14px;
+}
 
     /* ===== ACHIEVEMENTS SIMPLE — Mobile (2 cols) ===== */
     .achievements-simple {
@@ -1094,37 +1055,54 @@
 
     .divider-text { font-size: 12px; }
 
-    /* ===== SKILLS — Small Mobile ===== */
-    .skills-panel {
-        padding: 60px 0 80px;
-    }
+/* ===== SKILLS MARQUEE — Small Mobile (480px) ===== */
+.skills-marquee {
+    padding: 60px 0 70px;
+}
 
-    .skills-tabs-wrapper {
-        padding: 18px;
-        gap: 20px;
-    }
+.marquee-row {
+    margin-top: 16px;
+    padding: 8px 0;
+}
 
-    .skills-tab {
-        min-width: 180px;
-        padding: 12px 14px;
-    }
+.marquee-row-1 { margin-top: 32px; }
 
-    .tab-label { font-size: 13px; }
+.marquee-track {
+    gap: 14px;
+    animation-duration: 28s;
+}
 
-    .skills-content { padding: 20px 18px; }
+.marquee-reverse {
+    animation-duration: 32s;
+}
 
-    .panel-header h3 { font-size: 18px; }
+.skill-marquee-card {
+    width: 230px;
+    padding: 18px 16px;
+    gap: 10px;
+}
 
-    .panel-header-icon {
-        width: 42px;
-        height: 42px;
-        font-size: 17px;
-    }
+.marquee-card-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+}
 
-    .skill-card { padding: 14px 16px; }
+.marquee-card-title {
+    font-size: 16px;
+}
 
-    .skill-card-body h4 { font-size: 14px; }
-    .skill-card-body p { font-size: 11.5px; }
+.marquee-card-desc {
+    font-size: 12px;
+}
+
+.marquee-card-badge {
+    font-size: 8px;
+    padding: 3px 8px;
+    top: 12px;
+    right: 12px;
+}
+
 
     /* ===== ACHIEVEMENTS — Small Mobile (1 col) ===== */
     .achievements-simple {

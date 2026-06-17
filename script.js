@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMountainParallax();
     initExperiencePinned();
     initEducationLibrary();
-    initSkillsPanel();
+    initSkillsMarquee();
     initAchievementsSimple();
     initResumeSection();
     initContactSection();
@@ -693,112 +693,50 @@ function initEducationLibrary() {
     });
 }
 
-// ==================== SKILLS PANEL — TABS + GSAP ====================
-function initSkillsPanel() {
-    const tabs = document.querySelectorAll('.skills-tab');
-    const panels = document.querySelectorAll('.skills-panel-content');
 
-    if (tabs.length === 0 || panels.length === 0) return;
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const targetTab = tab.getAttribute('data-tab');
-
-            if (tab.classList.contains('active')) return;
-
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-
-            const targetPanel = document.querySelector(`.skills-panel-content[data-panel="${targetTab}"]`);
-            if (!targetPanel) return;
-
-            const currentPanel = document.querySelector('.skills-panel-content.active');
-
-            if (typeof gsap !== 'undefined') {
-                if (currentPanel && currentPanel !== targetPanel) {
-                    gsap.to(currentPanel, {
-                        opacity: 0, x: -20, duration: 0.25, ease: 'power2.in',
-                        onComplete: () => {
-                            currentPanel.classList.remove('active');
-                            targetPanel.classList.add('active');
-                            
-                            gsap.set(targetPanel, { opacity: 0, x: 30 });
-                            gsap.to(targetPanel, {
-                                opacity: 1, x: 0, duration: 0.4, ease: 'power3.out'
-                            });
-
-                            const newCards = targetPanel.querySelectorAll('.skill-card');
-                            gsap.fromTo(newCards,
-                                { opacity: 0, y: 25, scale: 0.95 },
-                                {
-                                    opacity: 1, y: 0, scale: 1,
-                                    duration: 0.5, stagger: 0.08,
-                                    ease: 'back.out(1.4)', delay: 0.1
-                                }
-                            );
-
-                            const newHeader = targetPanel.querySelector('.panel-header');
-                            if (newHeader) {
-                                gsap.fromTo(newHeader,
-                                    { opacity: 0, y: 15 },
-                                    { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
-                                );
-                            }
-                        }
-                    });
-                }
-            } else {
-                if (currentPanel) currentPanel.classList.remove('active');
-                targetPanel.classList.add('active');
-            }
-        });
-    });
-
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+// ==================== SKILLS MARQUEE — GSAP ANIMATIONS ====================
+function initSkillsMarquee() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        return;
+    }
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const header = document.querySelector('.skills-panel .section-header');
+    // Header reveal
+    const header = document.querySelector('.skills-marquee .section-header');
     if (header) {
         gsap.from(header.children, {
-            opacity: 0, y: 30, duration: 0.7, stagger: 0.15, ease: 'power3.out',
-            scrollTrigger: { trigger: '.skills-panel', start: 'top 75%', toggleActions: 'play none none reverse' }
+            opacity: 0,
+            y: 30,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.skills-marquee',
+                start: 'top 75%',
+                toggleActions: 'play none none reverse'
+            }
         });
     }
 
-    const wrapper = document.querySelector('.skills-tabs-wrapper');
-    if (wrapper) {
-        gsap.from(wrapper, {
-            opacity: 0, y: 50, duration: 0.9, ease: 'power3.out',
-            scrollTrigger: { trigger: wrapper, start: 'top 80%', toggleActions: 'play none none reverse' }
-        });
-    }
-
-    const allTabs = gsap.utils.toArray('.skills-tab');
-    allTabs.forEach((tab, index) => {
-        gsap.from(tab, {
-            opacity: 0, x: -30, duration: 0.6, delay: 0.3 + (index * 0.12), ease: 'power3.out',
-            scrollTrigger: { trigger: '.skills-tabs-wrapper', start: 'top 75%', toggleActions: 'play none none reverse' }
+    // Marquee rows fade in (one by one)
+    const rows = gsap.utils.toArray('.marquee-row');
+    rows.forEach((row, index) => {
+        gsap.from(row, {
+            opacity: 0,
+            y: 40,
+            duration: 0.9,
+            delay: 0.3 + (index * 0.2),
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: row,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+            }
         });
     });
-
-    const initialCards = document.querySelectorAll('.skills-panel-content.active .skill-card');
-    if (initialCards.length > 0) {
-        gsap.from(initialCards, {
-            opacity: 0, y: 25, scale: 0.95,
-            duration: 0.5, stagger: 0.08, delay: 0.6, ease: 'back.out(1.4)',
-            scrollTrigger: { trigger: '.skills-content', start: 'top 75%', toggleActions: 'play none none reverse' }
-        });
-    }
-
-    const note = document.querySelector('.tabs-bottom-note');
-    if (note) {
-        gsap.from(note, {
-            opacity: 0, y: 15, duration: 0.5, delay: 0.9, ease: 'power2.out',
-            scrollTrigger: { trigger: '.skills-tabs-wrapper', start: 'top 75%', toggleActions: 'play none none reverse' }
-        });
-    }
 }
+
 
 // ==================== ACHIEVEMENTS — SIMPLE GSAP ====================
 function initAchievementsSimple() {

@@ -1997,20 +1997,19 @@ img {
 }
 
 
-
 /* ============================================================ */
-/* ============ SKILLS — TWO PANEL TABS LAYOUT ================ */
+/* ============ SKILLS — INFINITE MARQUEE ===================== */
 /* ============================================================ */
-.skills-panel {
+.skills-marquee {
     position: relative;
-    padding: 110px 0 120px;
+    padding: 110px 0 110px;
     background: var(--beige);
     color: var(--navy);
     overflow: hidden;
 }
 
-/* Subtle diagonal lines pattern */
-.skills-panel-bg {
+/* Subtle background pattern */
+.skills-marquee-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -2020,353 +2019,213 @@ img {
         repeating-linear-gradient(
             45deg,
             transparent 0,
-            transparent 60px,
-            rgba(31, 42, 68, 0.025) 60px,
-            rgba(31, 42, 68, 0.025) 61px
+            transparent 70px,
+            rgba(31, 42, 68, 0.02) 70px,
+            rgba(31, 42, 68, 0.02) 71px
         ),
-        radial-gradient(circle at 15% 20%, rgba(198, 167, 94, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 85% 80%, rgba(31, 42, 68, 0.06) 0%, transparent 50%);
+        radial-gradient(circle at 10% 20%, rgba(198, 167, 94, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(31, 42, 68, 0.05) 0%, transparent 50%);
     z-index: 1;
     pointer-events: none;
 }
 
-.skills-panel .container {
+.skills-marquee .container {
     position: relative;
     z-index: 2;
 }
 
-.skills-panel .section-intro {
+.skills-marquee .section-intro {
     margin-top: 20px;
     font-size: 15px;
     color: var(--text-secondary);
-    max-width: 700px;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.75;
 }
 
-.skills-panel .section-intro strong {
+.skills-marquee .section-intro strong {
     color: var(--navy);
     font-weight: 700;
 }
 
 /* ============================================================ */
-/* ==================== TABS WRAPPER ========================== */
+/* ==================== MARQUEE ROWS ========================== */
 /* ============================================================ */
-.skills-tabs-wrapper {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 60px auto 0;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(198, 167, 94, 0.3);
-    border-radius: var(--radius-md);
-    padding: 30px;
-    box-shadow: 
-        0 20px 60px rgba(31, 42, 68, 0.1),
-        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
-}
-
-/* ============================================================ */
-/* ==================== LEFT — VERTICAL TABS ================== */
-/* ============================================================ */
-.skills-tabs {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.marquee-row {
     position: relative;
-}
-
-.skills-tab {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 18px 20px;
-    background: rgba(255, 255, 255, 0.5);
-    border: 1.5px solid rgba(31, 42, 68, 0.08);
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: var(--transition);
-    text-align: left;
-    font-family: 'Inter', sans-serif;
     width: 100%;
-    position: relative;
     overflow: hidden;
+    margin-top: 50px;
+    padding: 12px 0;
+    z-index: 2;
 }
 
-/* Hover state */
-.skills-tab:not(.active):hover {
-    background: rgba(255, 255, 255, 0.85);
-    border-color: rgba(198, 167, 94, 0.4);
-    transform: translateX(4px);
-}
+.marquee-row-1 { margin-top: 70px; }
+.marquee-row-2 { margin-top: 24px; }
+.marquee-row-3 { margin-top: 24px; }
 
-/* Active state */
-.skills-tab.active {
-    background: var(--navy);
-    border-color: var(--navy);
-    box-shadow: 
-        0 12px 28px rgba(31, 42, 68, 0.3),
-        0 0 0 3px rgba(198, 167, 94, 0.25);
-}
-
-.skills-tab.active::before {
+/* Fade edges (left & right) */
+.marquee-row::before,
+.marquee-row::after {
     content: '';
     position: absolute;
-    left: 0;
     top: 0;
     bottom: 0;
-    width: 4px;
-    background: var(--gold);
-    border-radius: 0 4px 4px 0;
+    width: 120px;
+    z-index: 3;
+    pointer-events: none;
 }
 
-/* Tab Icon */
-.tab-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: var(--radius-sm);
-    background: rgba(198, 167, 94, 0.15);
-    color: var(--gold-dark);
+.marquee-row::before {
+    left: 0;
+    background: linear-gradient(to right, var(--beige) 10%, transparent);
+}
+
+.marquee-row::after {
+    right: 0;
+    background: linear-gradient(to left, var(--beige) 10%, transparent);
+}
+
+/* ===== Marquee Track (Auto-scrolling) ===== */
+.marquee-track {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 19px;
+    gap: 24px;
+    width: max-content;
+    animation: marquee-scroll-left 50s linear infinite;
+    will-change: transform;
+}
+
+.marquee-reverse {
+    animation: marquee-scroll-right 55s linear infinite;
+}
+
+@keyframes marquee-scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Pause animation on hover */
+.marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* ============================================================ */
+/* ==================== SKILL CARDS =========================== */
+/* ============================================================ */
+.skill-marquee-card {
     flex-shrink: 0;
+    width: 340px;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 28px 26px;
+    border: 1px solid rgba(198, 167, 94, 0.25);
+    box-shadow: 
+        0 8px 24px rgba(31, 42, 68, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
     transition: var(--transition);
-}
-
-.skills-tab.active .tab-icon {
-    background: var(--gold);
-    color: var(--navy);
-    box-shadow: 0 4px 12px rgba(198, 167, 94, 0.4);
-}
-
-/* Tab Text */
-.tab-text {
-    flex: 1;
+    cursor: default;
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 14px;
 }
 
-.tab-label {
-    font-size: 15px;
+/* Hover lift */
+.skill-marquee-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 18px 40px rgba(31, 42, 68, 0.15),
+        0 0 0 1px rgba(198, 167, 94, 0.4) inset;
+}
+
+/* ===== Card Badge (top right) ===== */
+.marquee-card-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 10px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.tech-card .marquee-card-badge {
+    background: rgba(31, 42, 68, 0.08);
     color: var(--navy);
-    letter-spacing: -0.2px;
-    transition: var(--transition);
+    border: 1px solid rgba(31, 42, 68, 0.2);
 }
 
-.skills-tab.active .tab-label {
-    color: var(--beige);
-}
-
-.tab-meta {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: var(--transition);
-}
-
-.skills-tab.active .tab-meta {
-    color: var(--gold-light);
-}
-
-/* Tab Arrow */
-.tab-arrow {
-    font-size: 11px;
-    color: var(--text-muted);
-    transition: var(--transition);
-    opacity: 0;
-    transform: translateX(-8px);
-}
-
-.skills-tab.active .tab-arrow {
-    color: var(--gold);
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.skills-tab:not(.active):hover .tab-arrow {
-    opacity: 0.6;
-    transform: translateX(0);
-}
-
-/* Bottom note */
-.tabs-bottom-note {
-    margin-top: auto;
-    padding: 14px 16px;
-    background: rgba(198, 167, 94, 0.08);
-    border: 1px dashed rgba(198, 167, 94, 0.35);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.tabs-bottom-note i {
+.pro-card .marquee-card-badge {
+    background: rgba(198, 167, 94, 0.15);
     color: var(--gold-dark);
-    font-size: 13px;
+    border: 1px solid rgba(198, 167, 94, 0.4);
 }
 
-/* ============================================================ */
-/* ==================== RIGHT — CONTENT PANEL ================= */
-/* ============================================================ */
-.skills-content {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: var(--radius-md);
-    padding: 36px 38px;
-    border: 1px solid rgba(31, 42, 68, 0.05);
-    min-height: 480px;
-    position: relative;
-    overflow: hidden;
+.personal-card .marquee-card-badge {
+    background: rgba(16, 185, 129, 0.12);
+    color: #047857;
+    border: 1px solid rgba(4, 120, 87, 0.3);
 }
 
-/* Panel content (hidden by default) */
-.skills-panel-content {
-    display: none;
-}
-
-.skills-panel-content.active {
-    display: block;
-}
-
-/* Panel Header */
-.panel-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    margin-bottom: 30px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid rgba(31, 42, 68, 0.1);
-}
-
-.panel-header-icon {
+/* ===== Card Icon ===== */
+.marquee-card-icon {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, var(--navy), var(--navy-light));
-    color: var(--gold);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    flex-shrink: 0;
-    box-shadow: 0 8px 20px rgba(31, 42, 68, 0.25);
-}
-
-.panel-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 6px;
-    letter-spacing: -0.5px;
-}
-
-.panel-header p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    max-width: 600px;
-}
-
-/* ============================================================ */
-/* ==================== SKILL CARDS ============================ */
-/* ============================================================ */
-.skill-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-}
-
-.skill-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 20px 22px;
-    background: var(--beige-light);
-    border: 1px solid rgba(198, 167, 94, 0.3);
-    border-radius: var(--radius-md);
     transition: var(--transition);
-    cursor: default;
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(31, 42, 68, 0.15);
 }
 
-.skill-card::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--gold);
-    transform: scaleY(0);
-    transform-origin: center;
-    transition: transform 0.4s ease;
-}
-
-.skill-card:hover::before {
-    transform: scaleY(1);
-}
-
-.skill-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--gold);
-    box-shadow: 0 12px 25px rgba(31, 42, 68, 0.12);
-    background: #ffffff;
-}
-
-.skill-card-icon {
-    width: 44px;
-    height: 44px;
+.tech-card .marquee-card-icon {
     background: var(--navy);
     color: var(--gold);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-    transition: var(--transition);
 }
 
-.skill-card:hover .skill-card-icon {
+.pro-card .marquee-card-icon {
     background: var(--gold);
     color: var(--navy);
-    transform: rotate(-5deg) scale(1.05);
 }
 
-.skill-card-body {
-    flex: 1;
+.personal-card .marquee-card-icon {
+    background: #047857;
+    color: #ffffff;
 }
 
-.skill-card-body h4 {
+.skill-marquee-card:hover .marquee-card-icon {
+    transform: rotate(-8deg) scale(1.08);
+}
+
+/* ===== Card Title ===== */
+.marquee-card-title {
     font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 21px;
+    font-weight: 800;
     color: var(--navy);
-    margin-bottom: 4px;
-    line-height: 1.25;
-    letter-spacing: -0.2px;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    margin: 0;
 }
 
-.skill-card-body p {
-    font-size: 12.5px;
+/* ===== Card Description ===== */
+.marquee-card-desc {
+    font-size: 13.5px;
     color: var(--text-secondary);
-    line-height: 1.55;
+    line-height: 1.65;
     font-weight: 500;
+    margin: 0;
 }
-
 
 /* ============================================================ */
 /* =========== ACHIEVEMENTS — FULL CORK WALL ================== */
