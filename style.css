@@ -1,3 +1,39 @@
+
+/* ==================== PERFORMANCE ==================== */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Image optimization */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* GPU acceleration for animations */
+.hero-content,
+.floating-card,
+.exp-card,
+.edu-card,
+.pinned-card {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Reduce animation for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
 /* ==================== CSS VARIABLES — NEW THEME ==================== */
 :root {
     /* Brand Colors */
