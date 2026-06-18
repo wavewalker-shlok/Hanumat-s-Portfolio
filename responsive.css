@@ -539,28 +539,32 @@
     right: 14px;
 }
 
-    /* ===== ACHIEVEMENTS SIMPLE — Mobile (2 cols) ===== */
-    .achievements-simple {
-        padding: 70px 0 80px;
-    }
+/* ===== ACHIEVEMENTS SIMPLE — Tablet/Mobile (768px) ===== */
+.achievements-simple {
+    padding: 70px 0 80px;
+}
 
-    .cork-board {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 40px 25px !important;
-        padding: 15px;
-        margin-top: 40px;
-    }
+.cork-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 25px;
+    padding: 15px;
+    margin-top: 40px;
+}
 
-    .pinned-card h3 {
-        font-size: 15px;
-        margin-top: 12px;
-    }
+.pinned-card img {
+    height: 220px !important;
+}
 
-    .pin {
-        width: 18px;
-        height: 18px;
-        top: -8px;
-    }
+.pinned-card h3 {
+    font-size: 15px;
+    margin-top: 12px;
+}
+
+.pin {
+    width: 18px;
+    height: 18px;
+    top: -8px;
+}
 
 /* ===== RESUME — Tablet/Mobile (768px) ===== */
 .resume-section {
@@ -1104,33 +1108,32 @@
 }
 
 
-    /* ===== ACHIEVEMENTS — Small Mobile (1 col) ===== */
-    .achievements-simple {
-        padding: 60px 0 70px;
-    }
+   /* Achievements — Small Mobile (480px) */
+.cork-board {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px 18px !important;
+    padding: 10px;
+}
 
-    .cork-board {
-        grid-template-columns: 1fr !important;
-        gap: 35px !important;
-        padding: 10px;
-        max-width: 320px;
-    }
+.pinned-card {
+    padding: 8px 8px 12px;
+}
 
-    .pinned-card {
-        padding: 10px 10px 14px;
-    }
+.pinned-card img {
+    height: 200px !important;
+}
 
-    .pinned-card h3 {
-        font-size: 14px;
-        margin-top: 10px;
-        padding: 0 3px;
-    }
+.pinned-card h3 {
+    font-size: 13px;
+    margin-top: 10px;
+    padding: 0 3px;
+}
 
-    .pin {
-        width: 16px;
-        height: 16px;
-        top: -7px;
-    }
+.pin {
+    width: 16px;
+    height: 16px;
+    top: -7px;
+}
 
     /* ===== RESUME — Small Mobile (480px) ===== */
 .resume-section {
