@@ -1075,7 +1075,19 @@
                         <p>Feel free to reach out with any inquiries. I'm here to discuss opportunities, collaborations, or just to connect!</p>
                     </div>
 
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+    
+                                <!-- Web3Forms Access Key (HIDDEN) -->
+                                <input type="hidden" name="access_key" value="db097554-ca1c-4a8b-b441-f1114bfb510a">
+                                
+                                <!-- Email Subject Line -->
+                                <input type="hidden" name="subject" value="New Contact from Portfolio Website">
+                                
+                                <!-- From Name (shown in email header) -->
+                                <input type="hidden" name="from_name" value="Hanumat Portfolio Contact Form">
+                                
+                                <!-- Honeypot Spam Protection (DON'T REMOVE) -->
+                                <input type="checkbox" name="botcheck" style="display: none;">
                         
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Name" required>
@@ -1086,7 +1098,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            <input type="text" id="subject" name="user_subject" placeholder="Subject" required>
                         </div>
 
                         <div class="form-group">

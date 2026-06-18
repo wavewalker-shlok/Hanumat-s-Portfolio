@@ -251,22 +251,30 @@ function animateCounter(element, target) {
     requestAnimationFrame(updateCounter);
 }
 
-// ==================== CONTACT FORM ====================
+// ==================== CONTACT FORM — WEB3FORMS INTEGRATION ====================
 function initContactForm() {
     const form = document.getElementById('contactForm');
 
     if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const formData = new FormData(form);
             const name = formData.get('name');
             const email = formData.get('email');
-            const subject = formData.get('subject');
+            const userSubject = formData.get('user_subject');
             const message = formData.get('message');
 
-            if (!name || !email || !subject || !message) {
+            // Basic validation
+            if (!name || !email || !userSubject || !message) {
                 showNotification('Please fill all fields!', 'error');
+                return;
+            }
+
+            // Email format validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address!', 'error');
                 return;
             }
 
@@ -275,12 +283,29 @@ function initContactForm() {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
 
-            setTimeout(() => {
-                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-                form.reset();
+            try {
+                // Send to Web3Forms
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showNotification('✅ Message sent successfully! Hanumat will get back to you soon.', 'success');
+                    form.reset();
+                } else {
+                    console.error('Web3Forms error:', result);
+                    showNotification('❌ Something went wrong. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                showNotification('❌ Network error. Please check your connection.', 'error');
+            } finally {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
+            }
         });
     }
 
