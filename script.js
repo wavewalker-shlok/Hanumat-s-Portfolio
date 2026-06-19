@@ -943,3 +943,26 @@ function initContactSection() {
         });
     }
 }
+
+
+
+function openEmailOptions(event) {
+    event.preventDefault();
+    
+    const email = 'Pareekhanumat@gmail.com';
+    const subject = 'Inquiry from Portfolio Website';
+    
+    // Detect device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // Mobile: Use mailto
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+    } else {
+        // Desktop: Open Gmail compose in new tab
+        window.open(
+            `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}`,
+            '_blank'
+        );
+    }
+}
